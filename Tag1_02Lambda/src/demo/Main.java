@@ -37,6 +37,9 @@ public class Main {
 		
 		MyOtherInterface myOtherPtr = x ->  x * x  ;
 		System.out.println(myOtherPtr.power(3));
+		
+		Runnable runnable =  () -> {System.out.println("Hier ist Arno Nym");};
+		runnable.run();
 	}
 	
 	private void foo() {
