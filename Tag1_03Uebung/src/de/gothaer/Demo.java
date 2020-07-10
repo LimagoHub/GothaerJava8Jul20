@@ -1,5 +1,8 @@
 package de.gothaer;
 
+import java.util.Iterator;
+import java.util.function.Consumer;
+
 public class Demo {
 
 	public static void main(String[] args) {
@@ -8,7 +11,13 @@ public class Demo {
 	}
 
 	private void run() {
-		MyCollection col = new MyCollection(this::tueWasMitWert);
+		
+		
+		
+		Consumer<Integer> c = v -> System.out.println(v * v);
+		c = c.andThen(v -> System.out.println(v / 2));
+		
+		MyCollection col = new MyCollection(c);
 		
 		for (int i = 0; i < 6; i++) {
 			System.out.println(col.getActualValue());
@@ -17,7 +26,7 @@ public class Demo {
 	}
 	
 	void tueWasMitWert(int wert) {
-		
+		System.out.println("Hallo : " +  wert);
 	}
 
 }
